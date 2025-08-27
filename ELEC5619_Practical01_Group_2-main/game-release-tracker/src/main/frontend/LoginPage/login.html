@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="loginBox">
+            <h2>Game Tracker Login</h2>
+            <form action="#" method="POST">
+                <input type="text" id="username" name="username" required placeholder="Username">
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <div class="options">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember"> Remember me</label>
+                    <!-- sends user to another page if they forgot password -->
+                    <a href="#">Forgot Password</a>
+                </div>
+                <button type="submit">Login</button>
+                <!-- Sends user to another page if they don't have account -->
+                <p>Don't have an account?<a href="../SignUpPage/signup.html" id="Register"> Register</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

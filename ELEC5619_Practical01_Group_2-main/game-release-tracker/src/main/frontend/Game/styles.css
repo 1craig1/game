@@ -1,0 +1,153 @@
+/* ====== Design tokens ====== */
+:root{
+  --bg: #0f1115;
+  --surface: #181b22;
+  --surface-2: #1f2430;
+  --border: #2a2f3a;
+  --text: #e7eaf0;
+  --muted: #b7beca;
+  --link: #7c5cff;      /* purple link like the screenshot */
+  --accent: #2dd36f;    /* green underline */
+  --shadow: 0 1px 0 rgba(0,0,0,.06), 0 10px 30px rgba(0,0,0,.35);
+  --radius: 14px;
+  --radius-lg: 18px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====== Page header ====== */
+.page{ max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+.page__header{ margin-bottom: 18px; }
+.section-title{
+  font-size: 20px;
+  letter-spacing: .5px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 6px 0;
+}
+.section-title__accent{
+  display:inline-block; width: 70px; height: 6px; border-radius: 999px;
+  background: var(--accent);
+}
+.section-sub{
+  color: var(--muted);
+  margin: 0 0 18px 0;
+  font-size: 14px;
+}
+
+/* ====== Grid ====== */
+.feed{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 900px){
+  .feed{ grid-template-columns: 1fr 1fr; }
+}
+
+/* ====== Card ====== */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 16px;
+  padding: 14px;
+}
+.card__media{
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-2);
+  height: 132px;
+}
+.card__media img{
+  width: 100%; height: 100%; object-fit: cover; display:block;
+}
+
+.card__body{ display: flex; flex-direction: column; }
+.card__head{
+  display: flex; align-items: start; justify-content: space-between; gap: 12px;
+  margin-bottom: 6px;
+}
+.card__title{
+  font-size: 18px; line-height: 1.22; margin: 0;
+  max-width: 100%;
+}
+.card__title a{
+  color: var(--link); text-decoration: none;
+}
+.card__title a:hover{ text-decoration: underline; }
+
+.chip{
+  --pad-x: 10px;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--muted);
+  padding: 4px var(--pad-x);
+  border: 1px solid var(--border);
+  background: #151923;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.chip b{ color: var(--text); font-weight: 700; }
+
+.card__desc{
+  color: #d6d9e0; font-size: 14px; line-height: 1.45;
+  margin: 4px 0 10px 0;
+  max-height: 68px; overflow: hidden; position: relative;
+}
+.card__desc:after{
+  content:""; position:absolute; right:0; bottom:0; width:30%;
+  height: 22px; background: linear-gradient(90deg, rgba(24,27,34,0), var(--surface));
+}
+
+/* ====== Footer meta ====== */
+.card__meta{
+  margin-top: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  padding-top: 8px; border-top: 1px dashed var(--border);
+}
+.meta__left{ display: flex; align-items: center; gap: 8px; }
+.avatar{
+  width: 24px; height: 24px; border-radius: 999px; display:block;
+  border: 2px solid var(--surface-2);
+}
+.author{
+  color: #8aa0ff; text-decoration: none; font-size: 13px; font-weight: 600;
+}
+.author:hover{ text-decoration: underline; }
+
+.meta__right{
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--muted); font-size: 13px;
+}
+.pill{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 8px; border-radius: 999px;
+  background: #221f2a; border: 1px solid var(--border); color: var(--text);
+  font-weight: 700; font-size: 12px;
+}
+.pill--green{ background: #1b2a1f; border-color: #1f3b2b; color: #9ff6c3; }
+
+.icon{ width: 16px; height: 16px; fill: currentColor; display:block; }
+
+/* ====== Mobile tweaks ====== */
+@media (max-width: 520px){
+  .card{ grid-template-columns: 108px 1fr; }
+  .card__media{ height: 108px; }
+  .card__title{ font-size: 16px; }
+}
